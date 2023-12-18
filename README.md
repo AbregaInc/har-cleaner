@@ -4,6 +4,8 @@ Library designed to clean sensitive data out of HAR files.
 
 Built for, and used in [Securely](https://marketplace.atlassian.com/apps/1232593/securely-for-jira-har-file-cleaner-compliance-and-privacy) for Jira. Securely will scrub sensitive data out of HAR files attached to Jira.
 
+Zero dependencies.
+
 ## Usage
 
 Import the library into your code:
