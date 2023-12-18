@@ -1,0 +1,19 @@
+{
+  "name": "har-cleaner",
+  "version": "0.0.1",
+  "description": "Library to clean data out of HAR files. Useful for security automation.",
+  "main": "har-cleaner.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbregaInc/har-cleaner.git"
+  },
+  "author": "Boris Berenberg <support@abrega.com>",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/AbregaInc/har-cleaner/issues"
+  },
+  "homepage": "https://github.com/AbregaInc/har-cleaner#readme"
+}
