@@ -1,10 +1,12 @@
 {
   "name": "har-cleaner",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Library to clean data out of HAR files. Useful for security automation.",
-  "main": "har-cleaner.tsx",
+  "main": "lib/har-cleaner.js",
+  "types": "lib/har-cleaner.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,6 @@
   "bugs": {
     "url": "https://github.com/AbregaInc/har-cleaner/issues"
   },
-  "homepage": "https://github.com/AbregaInc/har-cleaner#readme"
+  "homepage": "https://github.com/AbregaInc/har-cleaner#readme",
+  "tsconfig": "tsconfig.json"
 }

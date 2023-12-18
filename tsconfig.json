@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "outDir": "./lib",
+      "target": "es2015",
+      "module": "commonjs",
+      "declaration": true,
+      "sourceMap": true,
+      "lib": ["DOM", "DOM.Iterable", "ESNext", "ES2016"],
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true
+    },
+    "include": ["src/*"]
+  }
+  
