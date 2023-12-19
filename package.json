@@ -18,5 +18,8 @@
     "url": "https://github.com/AbregaInc/har-cleaner/issues"
   },
   "homepage": "https://github.com/AbregaInc/har-cleaner#readme",
-  "tsconfig": "tsconfig.json"
+  "tsconfig": "tsconfig.json",
+  "devDependencies": {
+    "@types/har-format": "^1.2.15"
+  }
 }
