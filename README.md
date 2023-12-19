@@ -60,6 +60,16 @@ Default lists are exported so you can access them in other parts of your code ea
 import { defaultMimeTypesList, defaultWordList } from 'har-cleaner';
 ```
 
+### Allow vs Denylisting
+
+This likely needs some better terminology and explanation, but the logic within the code allows for any given object to act in either allow or denylist mode. Let's walk through an example to make this easy to understand:
+
+You have a HAR file with a request header called Example. 
+If you set `scrubAllRequestHeaders` to true, and leave everything else alone, the Example header will be removed.
+If you set `scrubAllRequestHeaders` to true, and set `scrubSpecificHeader` to `['Example']` then everything other than Example will be removed.
+If you set `scrubAllRequestHeaders` to false, and leave everything else alone, the Example header will be left in place.
+If you set `scrubAllRequestHeaders` to false, and set `scrubSpecificHeader` to `['Example']` then only the Example header will be removed.
+
 ## Licensing
 
 This software is dual licensed under an AGPL license plus a commercial license. If you would like to use this in your software without complying with the AGPL license please contact us.
