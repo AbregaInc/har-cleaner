@@ -10,13 +10,13 @@ Zero dependencies.
 
 Import the library into your code:
 
-```
+```js
 import { sanitizeHar } from "har-cleaner";
 ```
 
 Call the function with whatever options you want:
 
-```
+```js
 scrubbedHar = sanitizeHar(harObject, {
     scrubAllCookies: options.scrubAllCookies,
     scrubSpecificCookie: options.scrubSpecificCookie,
@@ -35,7 +35,7 @@ scrubbedHar = sanitizeHar(harObject, {
 
 If you don't specify an option, then the library will use the relevant default value. Default values are defined in this block:
 
-```
+```js
 const effectiveOptions = {
     scrubAllRequestHeaders: options?.scrubAllRequestHeaders || false,
     scrubAllCookies: options?.scrubAllCookies || false,
@@ -56,7 +56,7 @@ const effectiveOptions = {
 
 Default lists are exported so you can access them in other parts of your code easily via:
 
-```
+```js
 import { defaultMimeTypesList, defaultWordList } from 'har-cleaner';
 ```
 
