@@ -10,13 +10,13 @@ Zero dependencies.
 
 Import the library into your code:
 
-```
+```js
 import { sanitizeHar } from "har-cleaner";
 ```
 
 Call the function with whatever options you want:
 
-```
+```js
 scrubbedHar = sanitizeHar(harObject, {
     scrubAllCookies: options.scrubAllCookies,
     scrubSpecificCookie: options.scrubSpecificCookie,
@@ -35,7 +35,7 @@ scrubbedHar = sanitizeHar(harObject, {
 
 If you don't specify an option, then the library will use the relevant default value. Default values are defined in this block:
 
-```
+```js
 const effectiveOptions = {
     scrubAllRequestHeaders: options?.scrubAllRequestHeaders || false,
     scrubAllCookies: options?.scrubAllCookies || false,
@@ -56,9 +56,28 @@ const effectiveOptions = {
 
 Default lists are exported so you can access them in other parts of your code easily via:
 
-```
+```js
 import { defaultMimeTypesList, defaultWordList } from 'har-cleaner';
 ```
+
+### Allow vs Denylisting
+
+This likely needs some better terminology and explanation, but the logic within the code allows for any given object to act in either allow or denylist mode. Let's walk through an example to make this easy to understand:
+
+- You have a HAR file with a request header called Example. 
+- If you set `scrubAllRequestHeaders` to true, and leave everything else alone, the Example header will be removed.
+- If you set `scrubAllRequestHeaders` to true, and set `scrubSpecificHeader` to `['Example']` then everything other than Example will be removed.
+- If you set `scrubAllRequestHeaders` to false, and leave everything else alone, the Example header will be left in place.
+- If you set `scrubAllRequestHeaders` to false, and set `scrubSpecificHeader` to `['Example']` then only the Example header will be removed.
+
+The same thing applies to the other matched options:
+
+- scrubAllRequestHeaders <> scrubSpecificHeader
+- scrubAllCookies <> scrubSpecificCookie
+- scrubAllQueryParams <> scrubSpecificQueryParam
+- scrubAllPostParams <> scrubSpecificPostParam
+- scrubAllResponseHeaders <> scrubSpecificResponseHeader
+- scrubAllBodyContents <> scrubSpecificMimeTypes
 
 ## Licensing
 
