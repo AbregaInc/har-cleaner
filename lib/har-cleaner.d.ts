@@ -13,6 +13,9 @@ export type SanitizeOptions = {
     scrubAllBodyContents?: boolean;
     scrubSpecificMimeTypes?: string[];
 };
+export declare const defaultRequestHeadersList: string[];
+export declare const defaultCookiesList: string[];
+export declare const defaultQueryPostParamsList: string[];
+export declare const defaultResponseHeadersList: string[];
 export declare const defaultMimeTypesList: string[];
-export declare const defaultWordList: string[];
 export declare function sanitizeHar(har: Har, options?: SanitizeOptions): Har;
