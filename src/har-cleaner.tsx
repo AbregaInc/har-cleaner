@@ -15,40 +15,55 @@ export type SanitizeOptions = {
     scrubSpecificMimeTypes?: string[];
 };
 
-export const defaultMimeTypesList = [
-    "application/javascript",
-    "text/javascript"
+// Default list for request headers that are commonly known to contain sensitive information.
+export const defaultRequestHeadersList = [
+    "Authorization",         // Used for access tokens and credentials
+    "client_id",             // Identifies the client in OAuth scenarios
+    "client_secret",         // Secret key for OAuth client authentication
+    "auth",                  // Generic authentication headers
+    "authenticity_token",    // Tokens used to prevent CSRF attacks
+    "x-client-data",         // Custom header for client-specific data, often sensitive
 ];
 
-export const defaultWordList = [
-	"Authorization",
-	"SAMLRequest",
-	"SAMLResponse",
-	"access_token",
-	"appID",
-	"assertion",
-	"auth",
-	"authenticity_token",
-	"challenge",
-	"client_id",
-	"client_secret",
-	"code",
-	"code_challenge",
-	"code_verifier",
-	"email",
-	"facetID",
-	"fcParams",
-	"id_token",
-	"password",
-	"refresh_token",
-	"serverData",
-	"shdf",
-	"state",
-	"token",
-	"usg",
-	"vses2",
-	"x-client-data",
+// Default list of cookie names that are likely to contain sensitive session or user information.
+export const defaultCookiesList = [
+    "access_token",          // Token for user authentication
+    "refresh_token",         // Token to obtain a new access token
+    "id_token",              // Token representing the user's identity
+    "facetID",               // Could be used in multi-factor authentication
+    "serverData",            // Generic server data that could be sensitive
+    "vses2",                 // Example of a custom sensitive cookie
 ];
+
+// Default list for sensitive query and post parameters often used in authentication and data transmission.
+export const defaultQueryPostParamsList = [
+    "SAMLRequest",           // Used in SAML authentication
+    "SAMLResponse",          // Response for SAML authentication
+    "code",                  // Authentication code in OAuth
+    "code_challenge",        // PKCE code challenge in OAuth
+    "code_verifier",         // PKCE code verifier in OAuth
+    "state",                 // State parameter used in OAuth for CSRF protection
+    "usg",                   // Example of a custom query parameter that could be sensitive
+    "appID",                 // Application identifier
+    "assertion",             // Assertions used in authentication
+    "challenge",             // Challenge parameter, potentially in multifactor authentication
+    "email",                 // User's email address
+    "password",              // User's password
+];
+
+// Default list for response headers where sensitive information is likely to be found.
+export const defaultResponseHeadersList = [
+    "Set-Cookie",            // Commonly used for session management and can contain sensitive info
+];
+
+// Default list of MIME types which are likely to contain sensitive information and should be scrubbed.
+export const defaultMimeTypesList = [
+    "application/javascript", // JavaScript files can contain sensitive data
+    "text/javascript",        // Textual JavaScript files
+    "application/json",       // JSON often contains sensitive data
+    "application/xml",        // XML can also contain sensitive data
+];
+
 
 export function sanitizeHar(har: Har, options?: SanitizeOptions): Har {
 
@@ -61,11 +76,11 @@ export function sanitizeHar(har: Har, options?: SanitizeOptions): Har {
         scrubAllResponseHeaders: options?.scrubAllResponseHeaders || false,
         scrubAllBodyContents: options?.scrubAllBodyContents || false,
         scrubSpecificMimeTypes: options?.scrubSpecificMimeTypes || defaultMimeTypesList,
-        scrubSpecificHeader: options?.scrubSpecificHeader || defaultWordList,
-        scrubSpecificResponseHeader: options?.scrubSpecificResponseHeader|| defaultWordList,
-        scrubSpecificPostParam: options?.scrubSpecificPostParam || defaultWordList,
-        scrubSpecificCookie: options?.scrubSpecificCookie || defaultWordList,
-        scrubSpecificQueryParam: options?.scrubSpecificQueryParam || defaultWordList,
+        scrubSpecificHeader: options?.scrubSpecificHeader || defaultRequestHeadersList,
+        scrubSpecificCookie: options?.scrubSpecificCookie || defaultCookiesList,
+        scrubSpecificQueryParam: options?.scrubSpecificQueryParam || defaultQueryPostParamsList,
+        scrubSpecificPostParam: options?.scrubSpecificPostParam || defaultQueryPostParamsList,
+        scrubSpecificResponseHeader: options?.scrubSpecificResponseHeader || defaultResponseHeadersList,
     };
 
     //console.log('effective options ', effectiveOptions);
