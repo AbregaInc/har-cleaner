@@ -44,20 +44,20 @@ const effectiveOptions = {
     scrubAllResponseHeaders: options?.scrubAllResponseHeaders || false,
     scrubAllBodyContents: options?.scrubAllBodyContents || false,
     scrubSpecificMimeTypes: options?.scrubSpecificMimeTypes || defaultMimeTypesList,
-    scrubSpecificHeader: options?.scrubSpecificHeader || defaultWordList,
-    scrubSpecificResponseHeader: options?.scrubSpecificResponseHeader|| defaultWordList,
-    scrubSpecificPostParam: options?.scrubSpecificPostParam || defaultWordList,
-    scrubSpecificCookie: options?.scrubSpecificCookie || defaultWordList,
-    scrubSpecificQueryParam: options?.scrubSpecificQueryParam || defaultWordList,
+    scrubSpecificHeader: options?.scrubSpecificHeader || defaultRequestHeadersList,
+    scrubSpecificCookie: options?.scrubSpecificCookie || defaultCookiesList,
+    scrubSpecificQueryParam: options?.scrubSpecificQueryParam || defaultQueryPostParamsList,
+    scrubSpecificPostParam: options?.scrubSpecificPostParam || defaultQueryPostParamsList,
+    scrubSpecificResponseHeader: options?.scrubSpecificResponseHeader || defaultResponseHeadersList,
 };
 ```
 
-`defaultWordList` and `defaultMimeTypeList` are defined in the file itself. These lists are based on Cloudflare's [har-sanitizer](https://github.com/cloudflare/har-sanitizer) library. However, we hope to evolve them to be option specific for clarity and performance reasons.
+The various default word lists are defined in the file itself. These lists are based on Cloudflare's [har-sanitizer](https://github.com/cloudflare/har-sanitizer) library. However, we hope to evolve them to be option specific for clarity and performance reasons.
 
 Default lists are exported so you can access them in other parts of your code easily via:
 
 ```js
-import { defaultMimeTypesList, defaultWordList } from 'har-cleaner';
+import { defaultMimeTypesList, defaultRequestHeadersList } from 'har-cleaner';
 ```
 
 ### Allow vs Denylisting
