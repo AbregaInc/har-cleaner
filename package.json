@@ -1,6 +1,6 @@
 {
   "name": "har-cleaner",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Library to clean data out of HAR files. Useful for security automation.",
   "main": "lib/har-cleaner.js",
   "types": "lib/har-cleaner.d.ts",
