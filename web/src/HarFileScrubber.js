@@ -45,6 +45,7 @@ function CustomLabel({ htmlFor, children, style }) {
 
 
 
+
 const validateInput = (inputValue, existingValues, type) => {
 
     switch (type) {
@@ -367,7 +368,7 @@ function App() {
                         <div style={{ display: 'flex', justifyContent: 'flex-end' }}> {/* Aligns iframe to the right */}
                             <iframe 
                                 src="https://ghbtns.com/github-btn.html?user=AbregaInc&repo=har-cleaner&type=star&count=true" 
-                                frameborder="0" 
+                                frameBorder="0" 
                                 scrolling="0" 
                                 width="78" 
                                 height="20" 
@@ -375,12 +376,17 @@ function App() {
                             ></iframe>
                         </div>
                     </Grid>
+                    <div className="banner">
+                        <p>All data processing happens 100% within the browser.<br /> 
+                        This page doesn't have any analytics or anything like that.<br />
+                        Check out the full code <a href="https://github.com/AbregaInc/har-cleaner/tree/main/web">here</a>.<br /><br />
+                        If you need this functionality within your Jira instance, check out:<br />
+                        <a href="https://marketplace.atlassian.com/apps/1232593/securely-for-jira-har-cleaner-compliance-automation-free?hosting=cloud&tab=overview">Securely for Jira</a>.
+</p>
+                    </div>
                     <Grid templateColumns="repeat(2, 1fr)" gap="space.200">
                         <div>             
                             <p style={{ marginBottom: token('space.500', '40px') }}>
-                                If you need this functionality within your Jira instance, check out <a href="https://marketplace.atlassian.com/apps/1232593/securely-for-jira-har-cleaner-compliance-automation-free?hosting=cloud&tab=overview">Securely for Jira</a>.
-                                <br/><br/>
-
                                 By default, the Securely HAR Cleaner will scrub portions of a HAR file based on the configuration below. You can read about this in <a href="https://abrega.gitbook.io/securely/secure-har-file-management-with-securely/what-is-sanitized">our documentation</a>.
                             </p>
                         </div>

@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.banner {
+  padding: 15px;
+  background-color: #4CAF50; /* Softer green background */
+  color: white; /* White text color */
+  text-align: center;
+  font-size: medium; /* Medium font size */
+  font-weight: normal; /* Regular font weight */
+  border-radius: 8px; /* Slightly larger rounded corners */
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2); /* Soft shadow for depth */
+  margin: 10px auto; /* Centering the banner */
+  width: 80%; /* Max width of banner */
+  font-size: large; /* Adjust font size */
+  font-weight: bold; /* Make the text bold */
+}
