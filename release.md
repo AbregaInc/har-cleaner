@@ -6,8 +6,9 @@ git status
 npm ci
 npm test
 npm run build
-npm version
+npm version minor/major
 npm publish
 git push
+git tag 0.0.X
 git push --tags
 ```
