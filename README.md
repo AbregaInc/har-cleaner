@@ -2,7 +2,9 @@
 
 Library designed to clean sensitive data out of HAR files.
 
-Built for, and used in [Securely](https://marketplace.atlassian.com/apps/1232593/securely-for-jira-har-file-cleaner-compliance-and-privacy) for Jira. Securely will scrub sensitive data out of HAR files attached to Jira.
+Built for, and used in [Securely for Jira](https://marketplace.atlassian.com/apps/1232593/securely-for-jira-har-file-cleaner-compliance-and-privacy). Securely will automatically scrub sensitive data out of HAR files attached to Jira and help users scrub files before ever uploading them to Jira.
+
+If you want to use this as a standalone web app check out [Securely for Web](https://har-cleaner.abrega.com/) by [Abrega](https://abrega.com/). This is deployed from the `web` subdirectory in this repository to Cloudflare Pages.
 
 Zero dependencies.
 
